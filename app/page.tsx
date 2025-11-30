@@ -17,15 +17,20 @@ export default function VeterinaryClinic() {
     <div className="min-h-screen">
       {/* Hero Section */}
       <section className="relative overflow-hidden bg-gradient-to-br from-background via-accent/20 to-background">
-        <div className="absolute inset-0 bg-[url('/cute-pets-pattern.jpg')] opacity-10" />
+        <div className="absolute inset-0 overflow-hidden">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover opacity-60"
+          >
+            <source src="/video.mp4" type="video/mp4" />
+          </video>
+        </div>
 
         <div className="container relative mx-auto px-4 py-16 md:py-24">
-          <div className="mx-auto max-w-4xl text-center">
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-2 text-sm font-medium text-primary">
-              <Heart className="h-4 w-4" />
-              <span className="text-balance">{"Evcil Dostlarınız İçin Profesyonel Bakım"}</span>
-            </div>
-
+          <div className="mx-auto max-w-4xl text-center mt-32 md:mt-40">
             <h1 className="mb-6 text-balance text-4xl font-bold tracking-tight md:text-6xl lg:text-7xl">
               {"Veteriner Kliniği"}
               <span className="block text-primary">{"Ümraniye"}</span>
