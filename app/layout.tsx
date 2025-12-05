@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     siteName: "Medeniyet Veteriner Kliniği",
     title: "Veteriner Kliniği Ümraniye | İstanbul Anadolu Yakası Veteriner",
     description:
-      "Ümraniye Şerifali'de profesyonel veteriner hizmetleri. Kedi, köpek, kuş veterineri. Aşılama, muayene, acil bakım. ☎ 0552 697 66 68",
+      "Ümraniye Şerifali'de profesyonel veteriner hizmetleri. Kedi, köpek, kuş veterineri. Aşılama, muayene, acil bakım. Tel: 0552 697 66 68",
     images: [
       {
         url: "/logo.png",

@@ -3,8 +3,10 @@
 import type React from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
 import { Phone, MapPin, Clock, Heart, Stethoscope, Syringe, Pill, Star, Quote, Dog, Cat, Bird } from "lucide-react"
 import Image from "next/image"
+import Autoplay from "embla-carousel-autoplay"
 
 export default function VeterinaryClinic() {
   const handleSmoothScroll = (targetId: string) => {
@@ -79,13 +81,13 @@ export default function VeterinaryClinic() {
             {/* Pet Icons */}
             <div className="mt-6 flex items-center justify-center gap-4">
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                <Dog className="h-7 w-7 text-foreground" />
+                <Dog className="h-7 w-7 text-primary" />
               </div>
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                <Cat className="h-7 w-7 text-foreground" />
+                <Cat className="h-7 w-7 text-primary" />
               </div>
               <div className="flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-                <Bird className="h-7 w-7 text-foreground" />
+                <Bird className="h-7 w-7 text-primary" />
               </div>
             </div>
           </div>
@@ -109,27 +111,87 @@ export default function VeterinaryClinic() {
             </p>
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+          <Carousel
+            className="w-full md:hidden"
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 3000 })]}
+          >
+            <CarouselContent>
+              {[
+                {
+                  icon: Heart,
+                  title: "Acil Müdahale",
+                  description: "7/24 acil durumlarda hızlı müdahale ve bakım",
+                },
+                {
+                  icon: Syringe,
+                  title: "Aşı Uygulamaları",
+                  description: "Düzenli aşı takvimleri ve koruyucu sağlık hizmetleri",
+                },
+                {
+                  icon: Pill,
+                  title: "Cerrahi İşlemler",
+                  description: "Profesyonel cerrahi operasyonlar ve tedaviler",
+                },
+                {
+                  icon: Stethoscope,
+                  title: "Görüntüleme Hizmetleri",
+                  description: "Modern görüntüleme teknolojileri ile teşhis",
+                },
+                {
+                  icon: Stethoscope,
+                  title: "Genel Muayene",
+                  description: "Detaylı muayene ve sağlık kontrolleri",
+                },
+              ].map((service, index) => {
+                const Icon = service.icon
+                return (
+                  <CarouselItem key={index}>
+                    <Card className="border-2 transition-all hover:border-primary hover:shadow-lg">
+                      <CardContent className="flex flex-col items-center p-6 text-center">
+                        <div className="mb-4 rounded-full bg-primary/10 p-4">
+                          <Icon className="h-8 w-8 text-primary" />
+                        </div>
+                        <h3 className="mb-2 text-lg font-semibold">{service.title}</h3>
+                        <p className="text-pretty text-xs text-muted-foreground">{service.description}</p>
+                      </CardContent>
+                    </Card>
+                  </CarouselItem>
+                )
+              })}
+            </CarouselContent>
+            <div className="mt-4 flex justify-center gap-2">
+              <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
+              <CarouselNext className="relative right-0 translate-x-0 translate-y-0" />
+            </div>
+          </Carousel>
+
+          <div className="hidden gap-6 md:grid md:grid-cols-2 lg:grid-cols-5">
             {[
               {
-                icon: Stethoscope,
-                title: "Muayene & Teşhis",
-                description: "Detaylı veteriner muayenesi ve hastalık teşhisi",
+                icon: Heart,
+                title: "Acil Müdahale",
+                description: "7/24 acil durumlarda hızlı müdahale ve bakım",
               },
               {
                 icon: Syringe,
-                title: "Aşılama",
+                title: "Aşı Uygulamaları",
                 description: "Düzenli aşı takvimleri ve koruyucu sağlık hizmetleri",
               },
               {
                 icon: Pill,
-                title: "Tedavi & İlaç",
-                description: "Profesyonel tedavi planları ve ilaç desteği",
+                title: "Cerrahi İşlemler",
+                description: "Profesyonel cerrahi operasyonlar ve tedaviler",
               },
               {
-                icon: Heart,
-                title: "Acil Bakım",
-                description: "Acil durumlarda hızlı müdahale ve bakım",
+                icon: Stethoscope,
+                title: "Görüntüleme Hizmetleri",
+                description: "Modern görüntüleme teknolojileri ile teşhis",
+              },
+              {
+                icon: Stethoscope,
+                title: "Genel Muayene",
+                description: "Detaylı muayene ve sağlık kontrolleri",
               },
             ].map((service, index) => {
               const Icon = service.icon
@@ -139,8 +201,8 @@ export default function VeterinaryClinic() {
                     <div className="mb-4 rounded-full bg-primary/10 p-4">
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
-                    <h3 className="mb-2 text-xl font-semibold">{service.title}</h3>
-                    <p className="text-pretty text-sm text-muted-foreground">{service.description}</p>
+                    <h3 className="mb-2 text-lg font-semibold">{service.title}</h3>
+                    <p className="text-pretty text-xs text-muted-foreground">{service.description}</p>
                   </CardContent>
                 </Card>
               )
@@ -161,7 +223,7 @@ export default function VeterinaryClinic() {
             <div className="grid gap-8 md:grid-cols-2 md:items-center">
               <div className="relative aspect-square overflow-hidden rounded-2xl">
                 <Image
-                  src="/images/image.png"
+                  src="/images/image.jpg"
                   alt="Ahmet Ceyhun - Veteriner Hekim Ümraniye"
                   fill
                   className="object-cover"
@@ -170,17 +232,22 @@ export default function VeterinaryClinic() {
               </div>
 
               <div>
-                <h3 className="mb-4 text-3xl font-bold">{"Ahmet Ceyhun"}</h3>
-                <p className="mb-4 text-lg font-medium text-primary">{"Veteriner Hekim"}</p>
-                <p className="text-pretty text-muted-foreground leading-relaxed">
-                  {
-                    "Evcil hayvanların sağlığı ve mutluluğu için çalışmak benim en büyük tutkum. Her hastama ailem gibi bakıyor, onların sağlıklı ve mutlu olmalarını sağlamak için elimden geleni yapıyorum."
-                  }
+                <h3 className="mb-3 text-2xl font-bold">{"Ahmet Ceyhun Türkmen"}</h3>
+                <p className="mb-3 text-base font-medium text-primary">{"Veteriner Hekim"}</p>
+                <p className="text-sm text-muted-foreground leading-relaxed">
+                  Ben Ahmet Ceyhun Türkmen, Balıkesir Üniversitesi Veteriner Fakültesi'nden 2022 yılında mezun
+                  oldum. Meslek hayatım boyunca özellikle köpek ve kuş hekimliği alanlarında yoğunlaştım ve bu
+                  alandaki bilgi ve deneyimimi her geçen gün geliştirmeye devam ediyorum.
                 </p>
-                <p className="mt-4 text-pretty text-muted-foreground leading-relaxed">
-                  {
-                    "Modern ekipmanlar ve güncel tedavi yöntemleriyle sevimli dostlarınıza en kaliteli hizmeti sunmak için buradayım."
-                  }
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  Ümraniye Şerifali Mahallesi'nde hizmet veren Medeniyet Veteriner Kliniğinde; dostlarımızın
+                  sağlığı için bilimsel yaklaşımı, modern teknolojiyi ve samimi bir iletişimi bir arada sunmayı
+                  amaçlıyorum. Kliniğime gelen her hasta benim için sadece bir "vaka" değil; ailesinin bir
+                  parçası, değeri olan bir can dostudur.
+                </p>
+                <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
+                  Amacım; sizlere güven veren, dostlarımıza ise en doğru bakım ve tedaviyi sağlayan bir sağlık
+                  noktası oluşturmak. Medeniyet Veteriner Kliniği olarak, her zaman yanınızdayım.
                 </p>
               </div>
             </div>
@@ -196,7 +263,59 @@ export default function VeterinaryClinic() {
             <p className="text-pretty text-lg text-muted-foreground">{"Müşterilerimizin deneyimlerini okuyun"}</p>
           </div>
 
-          <div className="mx-auto grid max-w-6xl gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <Carousel
+            className="mx-auto w-full max-w-6xl md:hidden"
+            opts={{ loop: true }}
+            plugins={[Autoplay({ delay: 10000 })]}
+          >
+            <CarouselContent>
+              {[
+              {
+                name: "Esra B.",
+                comment:
+                  "Çok uzun zamandır sokaklarda ve evimde patisever biri olarak ve sürekli de veterinerler ile iş birliği içinde bulunmak zorunda olduğumuzdan dolayı; ilk defa bu kadar; Etik ve Ahlaklı aynı zamanda hizmet bedeli uygun olan bir klinik ile karşılaştım. Sektor olarak; NADİR bir klinik... Tedavi ve karşılamadan çok memnun kaldım... Düşünmeden gidebilirsiniz. Tam anlamıyla hem insan olarak, hem hizmet anlayışı olarak çok çok iyi bir klinik.",
+                rating: 5,
+              },
+              {
+                name: "Yılmaz Ç.",
+                comment:
+                  "Bir arkadaşımızın kedisini götürdük gerekeni fazlasıyla yaptılar, ilgi alaka 10 numara. Ceyhun Bey çok tecrübeli bir hekim, eşi Büşra Hanım da sabırla dinlediler bizi teşekkür ederiz.",
+                rating: 5,
+              },
+              {
+                name: "Burak G.",
+                comment:
+                  "8 yaşında kedimizi getirdik. Kendisi dalında çok bilgili ve aynı zamanda çok ilgili. Usanmadan tüm sorularımızı ikna edici şekilde yanıtladı. Check up yaptırdık kedimize. Sayesinde daha bilinçli bir hayvan sahibiyiz.",
+                rating: 5,
+              },
+            ].map((testimonial, index) => (
+              <CarouselItem key={index}>
+                <Card className="border-2">
+                  <CardContent className="flex flex-col p-6">
+                    <div className="mb-4 flex items-center justify-between">
+                      <div className="flex gap-1">
+                        {Array.from({ length: testimonial.rating }).map((_, i) => (
+                          <Star key={i} className="h-5 w-5 fill-primary text-primary" />
+                        ))}
+                      </div>
+                      <Quote className="h-8 w-8 text-primary/20" />
+                    </div>
+                    <p className="mb-4 flex-grow text-pretty text-sm leading-relaxed text-muted-foreground">
+                      {testimonial.comment}
+                    </p>
+                    <p className="font-semibold text-foreground">{testimonial.name}</p>
+                  </CardContent>
+                </Card>
+              </CarouselItem>
+            ))}
+            </CarouselContent>
+            <div className="mt-4 flex justify-center gap-2">
+              <CarouselPrevious className="relative left-0 translate-x-0 translate-y-0" />
+              <CarouselNext className="relative right-0 translate-x-0 translate-y-0" />
+            </div>
+          </Carousel>
+
+          <div className="mx-auto hidden max-w-6xl gap-6 md:grid md:grid-cols-2 lg:grid-cols-3">
             {[
               {
                 name: "Esra B.",
