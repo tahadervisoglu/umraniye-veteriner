@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     apple: "/logo.png",
   },
   verification: {
-    google: "google-site-verification-code-buraya-gelecek",
+    google: "du-MMsf0r2Q-ST4eSOxStb7IpSjj_jyvGhEeFZpuXZo",
   },
 }
 

@@ -435,14 +435,14 @@ export default function VeterinaryClinic() {
               <CardContent className="p-0">
                 <div className="h-full min-h-[400px] overflow-hidden rounded-lg">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.5!2d29.11!3d41.015!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNDHCsDAwJzU0LjAiTiAyOcKwMDYnMzYuMCJF!5e0!3m2!1str!2str!4v1234567890"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3010.9292554230005!2d29.1451879!3d41.004921599999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cacf445946e77f%3A0xb548a76b04e43286!2sVETER%C4%B0NER%20Medeniyet%20Veteriner%20Pet%20ve%20Ku%C5%9F%20Klini%C4%9Fi%20-%20%C3%9Cmraniye%20-%20%C5%9Eerifali-%20Ata%C5%9Fehir%20-%20Dudullu!5e0!3m2!1str!2str!4v1765020439318!5m2!1str!2str"
                     width="100%"
                     height="100%"
                     style={{ border: 0, minHeight: "400px" }}
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Veteriner Kliniği Konumu"
+                    title="Medeniyet Veteriner Kliniği Konumu - Ümraniye Şerifali"
                   />
                 </div>
               </CardContent>
