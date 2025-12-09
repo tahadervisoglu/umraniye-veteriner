@@ -236,7 +236,7 @@ export default function VeterinaryClinic() {
                 <p className="mb-3 text-base font-medium text-primary">{"Veteriner Hekim"}</p>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Ben Ahmet Ceyhun Türkmen, Balıkesir Üniversitesi Veteriner Fakültesi'nden 2022 yılında mezun
-                  oldum. Meslek hayatım boyunca özellikle köpek ve kuş hekimliği alanlarında yoğunlaştım ve bu
+                  oldum. Meslek hayatım boyunca özellikle köpek, kedi ve kuş hekimliği alanlarında yoğunlaştım ve bu
                   alandaki bilgi ve deneyimimi her geçen gün geliştirmeye devam ediyorum.
                 </p>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
@@ -413,9 +413,9 @@ export default function VeterinaryClinic() {
                     <div>
                       <p className="mb-1 font-medium">{"Çalışma Saatleri"}</p>
                       <p className="text-pretty text-muted-foreground">
-                        {"Pazartesi - Cumartesi: 09:00 - 19:00"}
+                        {"7/24 Açık"}
                         <br />
-                        {"Acil durumlar için arayınız"}
+                        {"Her zaman hizmetinizdeyiz"}
                       </p>
                     </div>
                   </div>
